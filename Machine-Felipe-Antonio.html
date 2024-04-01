@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///C:/Users/Marise%20Miranda/Downloads/Marises%20Machine.html -->
+<html lang="pt-br">
+<link rel="stylesheet" href="style.css">
+
+
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora | Conversor </title>
+</head>
+
+<body>
+
+
+        <h1 class="titulo">Antonio & Felipe's Machine</h1>
+
+        <div class="container">
+                <h3 class="subtitulo">Conversor multifuncional</h3>
+                <input id="input_numero" placeholder="Algarismo a ser convertido" class="input">
+        
+                <select id="select_base" class="input">
+                        <option value="#">Qual a base do nº acima?</option>
+                        <option value="1">Binário (2)</option>
+                        <option value="2">Octal (8)</option>
+                        <option value="3">Decimal (10)</option>
+                        <option value="4">Hexadecimal (16)</option>
+                </select>
+
+                <br>
+                <button onclick="converter()">Converter</button>
+                <br><br>
+
+                <h3 class="subtitulo">Resultados convertidos abaixo</h3><br>
+
+                <div class="resultados">
+                        <b>Binário</b>
+                        <div id="div_bin" class="conversao"></div>
+                        <b>Octal</b>
+                        <div id="div_octal" class="conversao"></div>
+                        <b>Decimal</b>
+                        <div id="div_decimal" class="conversao"></div>
+                        <b>Hexadecimal</b>
+                        <div id="div_hexa" class="conversao"></div>
+                </div>
+        </div>
+
+</body>
+
+</html>
+
+
+
+<script>
+
+        function converter() {
+
+                var numero = input_numero.value;
+                var select = select_base.value;
+
+                if (select == '#') {
+
+                        alert("Informe uma base válida")
+
+                } else if (select == '1') {
+
+                        var numero = Number(input_numero.value);
+                        var informacao = parseInt(numero, 2);
+                        var octal = informacao.toString(8);
+                        var decimal = informacao;
+                        var hexa = informacao.toString(16);
+
+                        div_bin.innerHTML = `O valor informado já está em binário`;
+                        div_octal.innerHTML = `${octal}`;
+                        div_decimal.innerHTML = `${decimal}`;
+                        div_hexa.innerHTML = `${hexa}`;
+
+                } else if (select == '2') {
+
+                        var numero = Number(input_numero.value);
+                        var informacao = parseInt(numero, 8);
+
+                        var bin = informacao.toString(2);
+                        var octal = informacao.toString(8);
+                        var decimal = informacao;
+                        var hexa = informacao.toString(16);
+
+                        div_bin.innerHTML = `${bin}`;
+                        div_octal.innerHTML = `O valor informado já está em octal`;
+                        div_decimal.innerHTML = `${decimal}`;
+                        div_hexa.innerHTML = `${hexa}`;
+
+                } else if (select == '3') {
+
+                        var numero = Number(input_numero.value);
+                        var informacao = parseInt(numero, 10);
+
+                        var bin = informacao.toString(2);
+                        var octal = informacao.toString(8);
+                        var decimal = informacao;
+                        var hexa = informacao.toString(16);
+
+                        div_bin.innerHTML = `${bin}`;
+                        div_octal.innerHTML = `${octal}`;
+                        div_decimal.innerHTML = `O valor informado já está em decimal`;
+                        div_hexa.innerHTML = `${hexa}`;
+        
+
+                } else if (select == '4') {
+
+                        var numero = input_numero.value;
+                        var informacao = parseInt(numero, 16);
+
+                        var bin = informacao.toString(2);
+                        var octal = informacao.toString(8);
+                        var decimal = informacao;
+
+                        div_bin.innerHTML = `${bin}`;
+                        div_octal.innerHTML = `${octal}`;
+                        div_decimal.innerHTML = `${decimal}`;
+                        div_hexa.innerHTML = `O valor informado já está em hexadecimal`;
+
+                }
+
+        }
+        //cor.style.backgroundColor = `#${hexadecimal}`
+        //cor.style.backgroundColor = `#${hexa}`
+</script>
